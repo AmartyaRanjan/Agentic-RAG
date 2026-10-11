@@ -1,0 +1,31 @@
+1. Analyze how the state-action pair is selected in following two methods.
+uniform(task, eval_interval)
+on_policy(task, eval_interval) 
+
+2. Analyze what the branching factor b represents. How does increasing b from 1 to 10 change the expected-update calculation? Why might a larger branching factor make planning more computationally demanding? Please refer to b=1,3,10.
+
+3. Analyze how P(termination)=0.1 to 0.01 change would affect:
+the average length of evaluation episodes,
+the computational time of evaluate_pi(), and
+the reliability of the estimated start-state value.
+Give a conceptual explanation rather than modifying the program.
+
+4. Analyze why ε-greedy action selection is needed in the on-policy trajectory sampling method.
+What would be the possible consequence if: e = .1 to 0. With experiment and effects that you observe.
+
+5. Analyze why evaluate_pi() uses Monte Carlo simulation of many episodes rather than simply taking the current value stored in the Q-table. What does the resulting v_pi actually tell us about the performance of the learned policy? How many episode does it uses?
+
+6. Analyze why the comparison between 1,000 and 10,000 states is important for evaluating trajectory sampling.
+For a fixed computational budget of 20,000 updates, which method would you expect to have difficulty adequately covering a 10,000-state problem, and why?
+7. You are given a new problem with 100,000 states and two actions per state. The available computational budget is only: 50,000 updates.
+Using the ideas implemented in trajectory_sampling.py, design an experiment to determine whether uniform sampling or on-policy trajectory sampling is more effective.
+Specify:
+which sampling methods you would compare,
+what variables you would keep constant,
+what performance measure you would use,
+how you would handle randomness,
+and what result would convince you that on-policy sampling is more efficient.
+
+8. 
+Imagine a modification to the environment in which only 5% of the states are frequently encountered under the optimal policy, while the remaining 95% are rarely or never encountered. Would you recommend the uniform() method or the on_policy() method for allocating computational effort?
+Use the program's sampling mechanisms to justify your answer. Then discuss one possible disadvantage of your chosen method.
